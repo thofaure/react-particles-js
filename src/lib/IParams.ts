@@ -102,6 +102,7 @@ export interface IPolygonDefinition {
 export interface IParticleSizeDefinition {
 	value: number;
 	random: boolean;
+	size_min: number;
 	anim: {
 		enable: boolean;
 		speed: number;
