@@ -52,6 +52,7 @@ const defaultParams: IParams = {
 		size: {
 			value: 1,
 			random: false,
+			size_min: 0,
 			anim: {
 				enable: false,
 				speed: 40,

@@ -81,7 +81,13 @@ export default class Particle {
 	setupSize(size?: IParticleSizeDefinition): void {
 		const defaultSize = this.library.getParameter(p => p.particles.size);
 		size = deepAssign({}, defaultSize, size);
-		this.radius = (size.random ? Math.random() : 1) * size.value;
+		let scale = 1;
+		if(size.random) {
+			scale = size.size_min === 0
+				? Math.random()
+				: Math.random() * (1 - size.size_min) + size.size_min;
+		}
+		this.radius = scale * size.value;
 		if (size.anim.enable) {
 			this.size_status = false;
 			this.vs = size.anim.speed / 100;
